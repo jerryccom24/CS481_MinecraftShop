@@ -10,7 +10,8 @@ namespace homework4
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());//Make the root page (Main Page) a Nav page
+            
         }
 
         protected override void OnStart()
