@@ -5,14 +5,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="homework4.MainPage"
-             Title="The Wardrobe Shop">
+             Title="The Wardrobe Shop"
+             >
     <StackLayout>
         <!-- Place new controls here -->
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Text="Total Price of Order:" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold"></Label>
+        <Label x:Name="totalBox" Text="0" Grid.Column="1" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+        <Label BackgroundColor="LightGoldenrodYellow" Text="Note: Pull down to refresh your Total Price as you shop " Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"></Label>
+        <Label Padding="10" Grid.ColumnSpan="2" Grid.Row="2" Text="Shop From Our 4 Wardrobes Below:" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" FontAttributes="Bold"></Label>
 
         <ListView x:Name="WardrobeList"
                   IsPullToRefreshEnabled="True"
                   RowHeight="120"
-                  ItemTapped="WardrobeList_ItemTapped">
+                  ItemTapped="WardrobeList_ItemTapped"
+                  Grid.Row="3"
+                  Grid.ColumnSpan="2"
+                  Refreshing="WardrobeList_Refreshing">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -43,6 +62,7 @@
 
 
         </ListView>
+        </Grid>
 
     </StackLayout>
 </ContentPage>

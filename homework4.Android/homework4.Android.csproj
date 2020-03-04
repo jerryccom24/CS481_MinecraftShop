@@ -82,10 +82,6 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\sock.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\shoe.png">
       <SubType></SubType>
       <Generator></Generator>
@@ -143,6 +139,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\pants1.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\hat.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="homework4.WardrobePage" Title=" Wardrobe Items">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="homework4.WardrobePage" Title=" Wardrobe Items" >
     <ContentPage.Content>
         <StackLayout>
         <!-- Place new controls here -->
+        <StackLayout Orientation="Horizontal">
+            <Label BackgroundColor="LightGoldenrodYellow" Text="Note: Swipe left on an item to Add to Cart" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
 
+        </StackLayout>
         <ListView x:Name="WardrobeList"
                   IsPullToRefreshEnabled="False"
                   RowHeight="120"
@@ -11,9 +14,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout>
-                                <Grid >
+                        <ViewCell.ContextActions>
+                                <MenuItem Text="Add to Cart" Clicked="WardrobeList_ItemTapped" CommandParameter="{Binding price}"/>
+                        </ViewCell.ContextActions>
+                            <ViewCell.View>
+                            <Grid >
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="40"/>
                                         <RowDefinition Height="80"/>
@@ -25,14 +30,18 @@
                                         
                                         <ColumnDefinition Width="4*"/>
                                         
-                                    </Grid.ColumnDefinitions>                                
+                                    </Grid.ColumnDefinitions>
+                            
+                                
+                                                               
                                 <Image Grid.RowSpan="2" Grid.Column="0" Source="{Binding image}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
                                 <Label Grid.RowSpan="2" Grid.Column="1" Text="{Binding name}" TextColor="Black" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>                              
-                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding info}"  FontAttributes="Italic" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding info}" FontAttributes="Italic" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
                                 <Label Grid.Row="0" Grid.Column="2" Text="{Binding price}"  FontAttributes="Italic" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-                                </Grid>                             
-                            </StackLayout>
-                        </ViewCell.View>
+                                                            
+                            </Grid>
+                                 
+                            </ViewCell.View>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -40,6 +49,7 @@
 
         </ListView>
 
+        
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>
